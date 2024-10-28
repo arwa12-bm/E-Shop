@@ -64,13 +64,11 @@ export const CartContextProvider = (props:Props)=> {
             }else{
                 updatedCart= [product]
             }
-
             toast.success("product added to cart")
             localStorage.setItem('eShopCartItem',JSON.stringify(updatedCart))
             return updatedCart ;
         })
-    
-    },[cartProducts])
+    },[])
     const HandleCartQtyIncrease =useCallback((product:CartProductType)=>{
         let updatedCart;
 
@@ -112,7 +110,18 @@ export const CartContextProvider = (props:Props)=> {
         return updatedCart ;
 
     },[cartProducts])
-    const handleRemoveProductFromCart =useCallback(()=>{},[])
+
+    const handleRemoveProductFromCart =useCallback((product :CartProductType)=>{
+        if(cartProducts){
+            const filteredProducts = cartProducts.filter
+            ((item)=>{
+                return item.id !== product.id
+            })
+            setCartProducts(filteredProducts)
+            toast.success("product removed")
+            localStorage.setItem('eShopCartItem',JSON.stringify(filteredProducts))
+        }
+    },[cartProducts])
 
     const handleClearCart =useCallback(()=>{
         setCartProducts(null)
