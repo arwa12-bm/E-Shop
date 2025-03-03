@@ -5,8 +5,13 @@ import Link from 'next/link'
 import React, { useCallback, useState } from 'react'
 import { AiFillCaretDown } from 'react-icons/ai'
 import BackDrop from './BackDrop'
+import { SafeUser } from '@/types'
 
-const UserMenu = () => {
+
+interface UserMenuProps{
+    currentUser:SafeUser |null
+}
+const UserMenu:React.FC <UserMenuProps> = ({currentUser}) => {
 
     const [isOpen,setIsOpen]=useState(false)
     const toggleOpen = useCallback(()=>{
@@ -30,8 +35,8 @@ return (
         transition
         text-slate-700
         '>
-            <Avatar/>
-            <AiFillCaretDown />
+        <Avatar src={currentUser?.image || ''} />
+        <AiFillCaretDown />
         </div>
         {isOpen && (
             <div className='
@@ -47,6 +52,8 @@ return (
             flex 
             flex-col
             cursur-pionter'>
+                {currentUser?
+                <>
                 <div>
                     <Link href="/orders">
                         <MenuItem onClick={toggleOpen}>Your orders</MenuItem>
@@ -54,6 +61,7 @@ return (
                     <Link href="/admin">
                         <MenuItem onClick={toggleOpen}>Admin Dashbord</MenuItem>
                     </Link>
+                    <hr/>
                     <MenuItem onClick={()=>{
                         toggleOpen()
                         signOut()
@@ -61,6 +69,8 @@ return (
                             Logout
                         </MenuItem>
                 </div>
+                </>
+                :<>
                 <div>
                     <Link href="/login">
                         <MenuItem onClick={toggleOpen}>Login</MenuItem>
@@ -68,6 +78,8 @@ return (
                         <MenuItem onClick={toggleOpen}>Register</MenuItem>
                     </Link>
                 </div>
+                </>}
+                
             </div>
         )}
     </div>

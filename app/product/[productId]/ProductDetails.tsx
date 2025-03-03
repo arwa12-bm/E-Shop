@@ -37,10 +37,10 @@ export const Horizontal=()=>{
 }
 
 const ProductDetails:React.FC<ProductListProps> = ({product}) => {
-    const {cartTotalQty} = useCart()
+
+    const {handleAddProductToCart,cartProducts,cartTotalQty} =useCart()
     console.log("cartTotalQty",cartTotalQty)
 
-    const {handleAddProductToCart,cartProducts} =useCart()
     const [isProductInCart , setIsProductInCart]= useState(false);
     console.log("cartProducts",cartProducts)
 

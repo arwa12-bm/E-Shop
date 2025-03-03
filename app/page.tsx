@@ -16,6 +16,10 @@ export default function Home() {
       })}
       
       </div>
+      <div>
+              {/* <BuyButton /> */}
+      </div>
+
     </Container>
     </div>
   );
