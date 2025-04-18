@@ -20,14 +20,20 @@ const CheckoutClient = () => {
     // };
     const amount = cartTotalAmount ;
   return (
-    <div>
-      <main className="max-w-6xl mx-auto p-10 text-white text-center border m-10 rounded-md bg-gradient-to-tr
-  from-blue-500 to-purple-500">
-  <div className="mb-10">
-  <h1 className="text-4xl font-extrabold mb-2">Sonny</h1> You, 1 minute ago Uncommitted changes
-  <h2 className="text-2x1">
-  has requested
-  <span className="font-bold"> ${amount}</span>
+    <div className="p-10">
+      <main className="max-w-6xl mx-auto text-2xl text-center rounded-md bg-white">
+  <div className="">
+  <h1 className="text-2xl mb-5 font-bold text-center ">
+  Enter your details to complete checkout
+  </h1>
+  <h2 className="text-sm text-left">
+  Address information
+  </h2>
+  <h2 className="text-sm text-left">
+  payment information
+  </h2>
+  <h2 className="text-2x1 m-8 text-center">
+  <span className="font-bold "> ${amount}</span>
   </h2>
   </div>
   <Elements
