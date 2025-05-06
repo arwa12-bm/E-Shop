@@ -18,7 +18,7 @@ const NavBar = async() => {
             <div className='py-4 border-b-[1px'>
                 <Container>
                     <div className='flex item-center justify-between gap-3 md:gap-0'>
-                        <Link href="/" className={`${redressed.className} font-blod text-2xl`}>E-Shop</Link>
+                        <Link href="/" className={`${redressed.className} font-blod text-4xl mt-4`}>E-Shop</Link>
                         <div className='hidden md:block'>Search</div>
                         <div className='flex item-center justify-between gap-8 md:gap-12'>
                             <CartCount />
